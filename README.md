@@ -33,3 +33,9 @@ It grounds the imagination in time, connecting dreams with intention.
 These two elements — **the door** and **the year** — form a red thread through all of our worlds.  
 They remind us that even though our futures may look different, we are all exploring the same themes:  
 **change, growth, and identity.**
+
+## How to Explore
+You can explore all our future spaces by visiting the project online here: [futurespaces.vercel.app](https://futurespaces.vercel.app)
+
+## Credits and Disclaimer
+Some 3D objects and assets used in this project are not our own creations and belong to their respective owners. This project is created solely for educational purposes as part of a school assignment and is not intended for commercial use.
