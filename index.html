@@ -5,8 +5,14 @@
   <body>
     <a-scene background="color: #EDE8D0">
       <a-assets>
-        <a-asset-item id="sofa-asset" src="/Fatou.assets/sofa.glb"></a-asset-item>
-        <a-asset-item id="sushi-asset" src="/Fatou.assets/sushi.glb"></a-asset-item>
+        <a-asset-item
+          id="sofa-asset"
+          src="/Fatou.assets/sofa.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="sushi-asset"
+          src="/Fatou.assets/sushi.glb"
+        ></a-asset-item>
         <a-asset-item
           id="redbull-asset"
           src="/Fatou.assets/redbull.glb"
@@ -27,8 +33,14 @@
           id="headphone-asset"
           src="/Fatou.assets/headphone.glb"
         ></a-asset-item>
-        <a-asset-item id="plant-asset" src="/Fatou.assets/plant.glb"></a-asset-item>
-        <a-asset-item id="table-asset" src="/Fatou.assets/table2.glb"></a-asset-item>
+        <a-asset-item
+          id="plant-asset"
+          src="/Fatou.assets/plant.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="table-asset"
+          src="/Fatou.assets/table2.glb"
+        ></a-asset-item>
         <a-asset-item
           id="computer-asset"
           src="/Fatou.assets/computer.glb"
@@ -46,7 +58,10 @@
           id="computer-chair"
           src="/Fatou.assets/computer_chair.glb"
         ></a-asset-item>
-        <a-asset-item id="fabrics" src="/Fatou.assets/fabric_rool.glb"></a-asset-item>
+        <a-asset-item
+          id="fabrics"
+          src="/Fatou.assets/fabric_rool.glb"
+        ></a-asset-item>
         <a-asset-item id="carpet" src="/Fatou.assets/carpet.glb"></a-asset-item>
         <a-asset-item
           id="beanbag-asset"
@@ -59,7 +74,15 @@
         <img id="poster-img1" src="/Fatou.assets/1.jpg" />
         <img id="poster-img2" src="/Fatou.assets/2.jpg" />
         <img id="poster-img3" src="/Fatou.assets/3.jpg" />
-        <audio id="dj-track" src="/Fatou.assets/water.mp3" preload="auto"></audio>
+        <audio
+          id="dj-track"
+          src="/Fatou.assets/water.mp3"
+          preload="auto"
+        ></audio>
+        <a-asset-item
+          id="shared-door"
+          src="/shared/shared_door.glb"
+        ></a-asset-item>
       </a-assets>
 
       <!-- floor -->
@@ -79,6 +102,31 @@
         width="12"
         color="#ffffff"
       ></a-box>
+      <!-- Left wall -->
+      <a-box
+        position="-6 1.5 0"
+        depth="12"
+        height="3"
+        width="0.1"
+        color="#ffffff"
+      ></a-box>
+
+      <!-- Right wall -->
+      <a-box
+        position="6 1.5 0"
+        depth="12"
+        height="3"
+        width="0.1"
+        color="#ffffff"
+      ></a-box>
+      <!--Shared door-->
+      <a-gltf-model
+        id="shared-door"
+        src="#shared-door"
+        position="5.9 0.03 -1"
+        scale="0.01 0.01 0.01"
+        rotation="0 90 0"
+      ></a-gltf-model>
       <!--Posters-->
       <a-image
         src="#poster-img1"
@@ -301,24 +349,6 @@
         </a-gltf-model>
       </a-entity>
 
-      <!-- Left wall -->
-      <a-box
-        position="-6 1.5 0"
-        depth="12"
-        height="3"
-        width="0.1"
-        color="#ffffff"
-      ></a-box>
-
-      <!-- Right wall -->
-      <a-box
-        position="6 1.5 0"
-        depth="12"
-        height="3"
-        width="0.1"
-        color="#ffffff"
-      ></a-box>
-
       <!-- Sofa -->
       <a-gltf-model
         id="soffa"
@@ -402,10 +432,11 @@
         wasd-controls
         position="0 1.6 6"
         rotation="0 180 0"
-      ></a-entity>
+      >
+        <a-cursor fuse="false" raycaster="objects: .clickable"></a-cursor>
+      </a-entity>
     </a-scene>
 
     <script src="/Fatou.js/script.js"></script>
   </body>
 </html>
-
