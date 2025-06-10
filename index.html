@@ -1,0 +1,411 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #EDE8D0">
+      <a-assets>
+        <a-asset-item id="sofa-asset" src="/Fatou.assets/sofa.glb"></a-asset-item>
+        <a-asset-item id="sushi-asset" src="/Fatou.assets/sushi.glb"></a-asset-item>
+        <a-asset-item
+          id="redbull-asset"
+          src="/Fatou.assets/redbull.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="remote-asset"
+          src="/Fatou.assets/tv_remote.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="djturntable-asset"
+          src="/Fatou.assets/djturntable.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="speaker-asset"
+          src="/Fatou.assets/speaker.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="headphone-asset"
+          src="/Fatou.assets/headphone.glb"
+        ></a-asset-item>
+        <a-asset-item id="plant-asset" src="/Fatou.assets/plant.glb"></a-asset-item>
+        <a-asset-item id="table-asset" src="/Fatou.assets/table2.glb"></a-asset-item>
+        <a-asset-item
+          id="computer-asset"
+          src="/Fatou.assets/computer.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="sewing-asset"
+          src="/Fatou.assets/sewing-machine.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="pottedplant-asset"
+          src="/Fatou.assets/potted_plant.glb"
+        ></a-asset-item>
+        <a-asset-item id="mouse" src="/Fatou.assets/mouse.glb"></a-asset-item>
+        <a-asset-item
+          id="computer-chair"
+          src="/Fatou.assets/computer_chair.glb"
+        ></a-asset-item>
+        <a-asset-item id="fabrics" src="/Fatou.assets/fabric_rool.glb"></a-asset-item>
+        <a-asset-item id="carpet" src="/Fatou.assets/carpet.glb"></a-asset-item>
+        <a-asset-item
+          id="beanbag-asset"
+          src="/Fatou.assets/bean_bag.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="plant2-asset"
+          src="/Fatou.assets/potted_plant2.glb"
+        ></a-asset-item>
+        <img id="poster-img1" src="/Fatou.assets/1.jpg" />
+        <img id="poster-img2" src="/Fatou.assets/2.jpg" />
+        <img id="poster-img3" src="/Fatou.assets/3.jpg" />
+        <audio id="dj-track" src="/Fatou.assets/water.mp3" preload="auto"></audio>
+      </a-assets>
+
+      <!-- floor -->
+      <a-plane
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="12"
+        height="12"
+        color="#cfcac0"
+      ></a-plane>
+
+      <!-- eye to eye wall -->
+      <a-box
+        position="0 1.5 -6"
+        depth="0.1"
+        height="3"
+        width="12"
+        color="#ffffff"
+      ></a-box>
+      <!--Posters-->
+      <a-image
+        src="#poster-img1"
+        position="0 1.5 -5.9"
+        width="1"
+        height="1.5"
+        rotation="0 0 0"
+      >
+      </a-image>
+      <a-image
+        src="#poster-img2"
+        position="-4 1.5 -5.9"
+        width="1"
+        height="1.5"
+        rotation="0 0 0"
+      >
+      </a-image>
+
+      <a-image
+        src="#poster-img3"
+        position="4 1.5 -5.9"
+        width="1"
+        height="1.5"
+        rotation="0 0 0"
+      >
+      </a-image>
+      <!--Plant2-->
+      <a-gltf-model
+        id="plant2"
+        src="#plant2-asset"
+        position="-5.3 0 -5.2"
+        scale="-5.5 5.5 5.5"
+        rotation="0 180 0"
+      ></a-gltf-model>
+
+      <!--Bean Bag-->
+      <a-gltf-model
+        id="beanbag"
+        src="#beanbag-asset"
+        position="-0.9 0 -6.5"
+        scale="0.03 0.03 0.03"
+        rotation="0 75 0"
+      ></a-gltf-model>
+
+      <a-entity id="dj-table-group" position="-2 0 -4">
+        <!-- Carpet -->
+
+        <a-gltf-model
+          id="carpet"
+          src="#carpet"
+          position="0 0.015 0.2"
+          scale="3.5 0.03 3"
+        >
+        </a-gltf-model>
+
+        <!-- DJ-Table -->
+        <a-box
+          position="0 0.5 0"
+          width="2"
+          height="1"
+          depth="1"
+          color="#E4D1B8"
+          material="metalness: 0.2; roughness: 0.7"
+        ></a-box>
+
+        <!-- Topp -->
+        <a-box
+          position="0 1.01 0"
+          width="2.05"
+          height="0.05"
+          depth="1.05"
+          color="#CBB69D"
+        ></a-box>
+
+        <!-- DJ-turntable -->
+        <a-gltf-model
+          id="djturntable"
+          src="#djturntable-asset"
+          position="0 1.05 0"
+          scale="0.2 0.2 0.2"
+          rotation="0 180 0"
+        ></a-gltf-model>
+
+        <!-- Speakers -->
+        <a-gltf-model
+          id="speaker"
+          src="#speaker-asset"
+          position="7.6 2 -1.90"
+          scale="0.3 0.3 0.1"
+          rotation="0 0 0"
+        ></a-gltf-model>
+        <a-gltf-model
+          id="speaker-mirror"
+          src="#speaker-asset"
+          position="-3.6 2 -1.90"
+          scale="0.3 0.3 0.1"
+          rotation="0 0 0"
+        ></a-gltf-model>
+
+        <!-- Headphones -->
+        <a-gltf-model
+          id="headphone"
+          src="#headphone-asset"
+          position="0.6 1.07 0.4"
+          scale="2 2 2"
+          rotation="-90 -10 5"
+        ></a-gltf-model>
+        <!--Music-->
+        <a-entity
+          id="dj-music"
+          sound="src: #dj-track; autoplay: false; positional: true; maxDistance: 10"
+          proximity-sound="target: #camera; threshold: 5"
+          position="-2 1.0 -4.3"
+        >
+        </a-entity>
+      </a-entity>
+
+      <!--Computer table-->
+      <a-entity id="computer-table-group" position="4 0 -4.8">
+        <a-gltf-model
+          id="table"
+          src="#table-asset"
+          position="0 0.5 0.5"
+          scale="1.5 1.5 2"
+          rotation="0 90 0"
+        ></a-gltf-model>
+        <!--Computer-->
+        <a-gltf-model
+          id="computer"
+          src="#computer-asset"
+          position="0 1.05 0.5"
+          scale="1.5 1.5 1.5"
+          rotation="0 90 0"
+        ></a-gltf-model>
+        <!--Plant-->
+        <a-gltf-model
+          id="pottedplant"
+          src="#pottedplant-asset"
+          position="-0.6 1.01 0.5"
+          rotation="0 0 0"
+          scale="1.05 1.05 1.05"
+        ></a-gltf-model>
+
+        <!--Computer mouse-->
+        <a-gltf-model
+          id="mouse"
+          src="#mouse"
+          position="0.4 1.05 0.5"
+          scale="1.2 1.2 1.2"
+          rotation="0 90 0"
+        ></a-gltf-model>
+
+        <!--Computer chair-->
+        <a-gltf-model
+          id="computer-chair"
+          src="#computer-chair"
+          position="0.3 0.05 1.3"
+          scale="1.3 1.3 1.3"
+          rotation="0 180 0"
+        ></a-gltf-model>
+        <!-- computer rug -->
+        <a-cylinder
+          position="0 0 0.5"
+          radius="1.5"
+          height="0.03"
+          color="#f5f5f0"
+          segments-radial="64"
+        ></a-cylinder>
+      </a-entity>
+
+      <a-entity id="sewing-table-group" position="5.2 0 4.7" rotation="0 90 0">
+        <!--Sewing table-->
+        <a-gltf-model
+          id="table"
+          src="#table-asset"
+          position="0 0.5 -0.5"
+          scale="1.5 1.5 2"
+          rotation="0 75 0"
+        ></a-gltf-model>
+        <!--Sewing machine-->
+        <a-gltf-model
+          id="sewing-machine"
+          src="#sewing-asset"
+          position="0 1 -0.5"
+          scale="1 1 1"
+          rotation="0 75 0"
+        ></a-gltf-model>
+        <!--Sewing rung-->
+        <a-cylinder
+          id="sewing-rug"
+          position="0 0 -0.5"
+          radius="1.2"
+          height="0.03"
+          color="#f5f5f0"
+          segments-radial="64"
+        ></a-cylinder>
+        <!--Fabrics-->
+        <a-gltf-model
+          id="fabric"
+          src="#fabrics"
+          position="1.5 1 0.09"
+          scale="1 1 1"
+          rotation="0 75 35"
+        ></a-gltf-model>
+        <a-gltf-model
+          id="fabric"
+          src="#fabrics"
+          position="1.9 1 0.09"
+          scale="1 1 1"
+          rotation="0 75 35"
+        ></a-gltf-model>
+        <!--Sewing table chair-->
+        <a-gltf-model
+          id="sewing-chair"
+          src="#computer-chair"
+          position="0 0.1 -1.2"
+          scale="1.3 1.3 1.3"
+          rotation="0 0 0"
+        >
+        </a-gltf-model>
+      </a-entity>
+
+      <!-- Left wall -->
+      <a-box
+        position="-6 1.5 0"
+        depth="12"
+        height="3"
+        width="0.1"
+        color="#ffffff"
+      ></a-box>
+
+      <!-- Right wall -->
+      <a-box
+        position="6 1.5 0"
+        depth="12"
+        height="3"
+        width="0.1"
+        color="#ffffff"
+      ></a-box>
+
+      <!-- Sofa -->
+      <a-gltf-model
+        id="soffa"
+        src="#sofa-asset"
+        position="-3 0 1.5"
+        scale="1.5 1.5 1.5"
+        rotation="0 270 0"
+      ></a-gltf-model>
+      <!--rugg-->
+      <a-cylinder
+        position="-2.9 0.05 3.2"
+        radius="2.8"
+        height="0.03"
+        color="#f5f5f0"
+        segments-radial="64"
+      >
+      </a-cylinder>
+
+      <!--Sushi-->
+      <a-gltf-model
+        id="sushi"
+        src="#sushi-asset"
+        position="-3.8 0.6 3.5"
+        scale="0.5 0.5 0.5"
+        rotation="0 0 0"
+      ></a-gltf-model>
+      <!--RedBull-->
+      <a-gltf-model
+        id="redbull"
+        src="#redbull-asset"
+        position="-3 0.5 2.6"
+        scale="0.5 0.5 0.5"
+        rotation="0 0 0"
+      ></a-gltf-model>
+
+      <!--Remote-->
+      <a-gltf-model
+        id="remote"
+        src="#remote-asset"
+        position="-3.8 0.6 4"
+        scale="0.02 0.02 0.02"
+        rotation="0 90 0"
+      ></a-gltf-model>
+      <!--Plant-->
+      <a-gltf-model
+        id="plant"
+        src="#plant-asset"
+        position="-5.2 0 2"
+        scale="1 1 1"
+        rotation="0 90 0"
+      ></a-gltf-model>
+      <!--TV-->
+      <a-box
+        id="tv"
+        position="-5.95 2 4"
+        width="2.9"
+        height="1.5"
+        depth="0.05"
+        color="#111111"
+        material="metalness: 0.8; roughness: 0.2"
+        rotation="0 90 0"
+      ></a-box>
+
+      <!-- Table -->
+      <a-entity id="burano-table" position="-3.6 0 0">
+        <a-box
+          position="-0.2 0.3 4"
+          width="0.5"
+          height="0.5"
+          depth="2.1"
+          color="#a0c8f0"
+          opacity="0.35"
+          transparent="true"
+        ></a-box>
+      </a-entity>
+
+      <!-- Camera -->
+      <a-entity
+        camera
+        look-controls
+        wasd-controls
+        position="0 1.6 6"
+        rotation="0 180 0"
+      ></a-entity>
+    </a-scene>
+
+    <script src="/Fatou.js/script.js"></script>
+  </body>
+</html>
+
