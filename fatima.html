@@ -14,11 +14,12 @@
 <a-entity  wasd-controls check-proximity="target: #tvScreen; distance: 2.5">
  
   <a-entity 
-    camera 
-    look-controls 
     position="0 1.6 0"
     rotation="0 180 0">
   </a-entity>
+  <a-camera wasd-controls-enabled="true" look-controls-enabled="true">
+          <a-cursor fuse="false" raycaster="objects: .clickable"></a-cursor>
+        </a-camera>
 </a-entity>
 
      
@@ -46,6 +47,11 @@
 
        <a-assets>
         <a-asset-item id="windowModel" src="/Fatima.assets/window_and_door.glb"></a-asset-item>
+         <a-asset-item
+          id="shared-door"
+          src="/shared/shared_door.glb"
+        ></a-asset-item>
+      </a-assets>
         <a-asset-item id="diningSetModel" src="/Fatima.assets/simple_dining_table.glb"></a-asset-item> 
         <a-asset-item id="clockModel" src="/Fatima.assets/wall_clock.glb"></a-asset-item>
          <a-asset-item id="fridgeModel" src="/Fatima.assets/fridge_freezer.glb"></a-asset-item>
@@ -96,7 +102,7 @@
       
      
  <!-- Door Model on Right Wall -->
-<a-entity 
+<!-- <a-entity 
 id="fatouDoor"
   gltf-model="#doorModel" 
   position="4 0 -4" 
@@ -104,9 +110,19 @@ id="fatouDoor"
   scale="0.6 0.8 0.6"
   class="clickable"
   >
-</a-entity>
+</a-entity> -->
 
+ <!--Shared door-->
+      <a-gltf-model
+        id="door-to-alex"
+        class="clickable"
+        src="#shared-door"
+         position="4 0 -4" 
+        rotation="0 -90 0" 
+        scale="0.009 0.009 0.009"
+      ></a-gltf-model>
 
+     
      
 
           <!-- Roof -->
