@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alex VR Space</title>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <a-scene 
+      fog="type: exponential; color: #111111; density: 0.03"
+      shadow="type: pcfsoft" 
+      background="color: #000">
+
+      <!-- Assets -->
+      <a-assets>
+        <a-asset-item id="ground" src="Alex.assets/models/ground.glb"></a-asset-item>
+        <a-asset-item id="palms" src="Alex.assets/models/palms.glb"></a-asset-item>
+        <a-asset-item id="cabin" src="Alex.assets/models/cabin.glb"></a-asset-item>
+        <a-asset-item id="poster" src="Alex.assets/models/poster.glb"></a-asset-item>
+        <a-asset-item id="phoenix" src="Alex.assets/models/phoenix.glb"></a-asset-item>
+        <a-asset-item id="portal" src="Alex.assets/models/animatedportal.glb"></a-asset-item>
+        <audio id="background-audio" src="Alex.assets/sounds/background.wav" preload="auto" crossorigin="anonymous"></audio>
+      </a-assets>
+
+      <!-- 🌌 Night Sky Color -->
+      <a-sky color="#111111" rotation="0 -90 0"></a-sky>
+
+      <!-- 🔊 Music -->
+      <a-entity id="bgMusic" sound="src: #background-audio; loop: true; volume: 0.5"></a-entity>
+
+      <!-- Lights -->
+      <a-entity light="type: ambient; intensity: 1"></a-entity>
+      <a-entity 
+        light="type: directional; intensity: 2; color: #aaccee; castShadow: true" 
+        position="5 10 5" 
+        target="#shadow-target"></a-entity>
+
+      <!-- Target for directional light to aim at -->
+      <a-entity id="shadow-target" position="0 0 0"></a-entity>
+
+      <!-- Camera -->
+      <a-entity position="12 1 1" rotation="0 90 0">
+        <a-camera wasd-controls-enabled="true" look-controls-enabled="true"></a-camera>
+      </a-entity>
+
+      <!-- Ground -->
+      <a-entity gltf-model="#ground" position="0 0 0" scale="1 1 1"></a-entity>
+
+      <!-- Palms -->
+      <a-entity gltf-model="#palms" position="0 0 0" scale="1 1 1" shadow="cast: true"></a-entity>
+
+      <!-- Cabin -->
+      <a-entity gltf-model="#cabin" position="0 0 3" scale="1 1 1" shadow="cast: true; receive: true"></a-entity>
+
+      <!-- Poster -->
+      <a-entity gltf-model="#poster" position="0 0 3" scale="1 1 1"></a-entity>
+
+      <!-- 🔥 Phoenix Animation -->
+      <a-entity id="phoenix-container" position="0 20 0"
+                animation="property: rotation; to: 0 360 0; dur: 30000; easing: linear; loop: true">
+        <a-entity id="phoenix" gltf-model="#phoenix" position="10 0 0" rotation="0 90 0"
+                  scale="0.01 0.01 0.01" animation-mixer class="clickable" shadow="cast: true">
+        </a-entity>
+      </a-entity>
+
+      <!-- 🌀 Animated Portal -->
+      <a-entity gltf-model="#portal" position="0 0 2.8" scale="1 1 1" animation-mixer shadow="cast: true"></a-entity>
+
+      <!-- Connect JS -->
+      <script src="Alex.js/Alex.js"></script>
+    </a-scene>
+  </body>
+</html>
