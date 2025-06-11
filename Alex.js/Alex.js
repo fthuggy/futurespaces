@@ -3,8 +3,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const phoenixHitbox = document.querySelector('#phoenix-hitbox');
   const mushroomHitbox = document.querySelector('#mushroom-hitbox');
   const rumHitbox = document.querySelector('#rum-hitbox');
+  const ganeshHitbox = document.querySelector('#ganesh-hitbox');
 
-  // Start background music after user interaction
+  // Background music starts after user interaction
   const playBackgroundMusic = () => {
     if (bgMusic?.components?.sound) bgMusic.components.sound.playSound();
     window.removeEventListener('click', playBackgroundMusic);
@@ -16,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchstart', playBackgroundMusic);
   window.addEventListener('keydown', playBackgroundMusic);
 
-  // Phoenix sound on gaze
+  // Phoenix sound on hover
   phoenixHitbox?.addEventListener('mouseenter', () => {
     phoenixHitbox.components.sound?.playSound();
   });
@@ -26,21 +27,25 @@ window.addEventListener('DOMContentLoaded', () => {
     mushroomHitbox.components.sound?.playSound();
   });
 
-  // Rum: toggle play/stop on click
+  // Rum toggle sound
   if (rumHitbox) {
     let rumPlaying = false;
-
     rumHitbox.addEventListener('click', () => {
       const sound = rumHitbox.components.sound;
       if (!sound) return;
-
-      if (rumPlaying) {
-        sound.stopSound();
-      } else {
-        sound.playSound();
-      }
-
+      rumPlaying ? sound.stopSound() : sound.playSound();
       rumPlaying = !rumPlaying;
+    });
+  }
+
+  // Ganesh toggle sound
+  if (ganeshHitbox) {
+    let ganeshPlaying = false;
+    ganeshHitbox.addEventListener('click', () => {
+      const sound = ganeshHitbox.components.sound;
+      if (!sound) return;
+      ganeshPlaying ? sound.stopSound() : sound.playSound();
+      ganeshPlaying = !ganeshPlaying;
     });
   }
 });
