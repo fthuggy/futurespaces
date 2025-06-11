@@ -22,23 +22,24 @@
         <a-asset-item id="portal" src="Alex.assets/models/animatedportal.glb"></a-asset-item>
         <a-asset-item id="mushrooms" src="Alex.assets/models/mushrooms.glb"></a-asset-item>
         <a-asset-item id="rum" src="Alex.assets/models/rum.glb"></a-asset-item>
+        <a-asset-item id="tainostatue" src="Alex.assets/models/tainostatue.glb"></a-asset-item>
+        <a-asset-item id="butterfly" src="Alex.assets/models/butterfly.glb"></a-asset-item>
+        <a-asset-item id="ganesh" src="Alex.assets/models/ganesh.glb"></a-asset-item>
 
         <audio id="background-audio" src="Alex.assets/sounds/background.wav" preload="auto" crossorigin="anonymous"></audio>
         <audio id="phoenix-audio" src="Alex.assets/sounds/phoenix.mp3" preload="auto" crossorigin="anonymous"></audio>
         <audio id="rum-audio" src="Alex.assets/sounds/bachata.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="mushroom-audio" src="Alex.assets/sounds/mushrooms.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="ganesh-audio" src="Alex.assets/sounds/jungle.mp3" preload="auto" crossorigin="anonymous"></audio>
       </a-assets>
 
-      <!-- 🔊 Background Music -->
+      <!-- Background Music -->
       <a-entity id="bgMusic" sound="src: #background-audio; loop: true; volume: 0.5"></a-entity>
 
       <!-- Sky & Lights -->
       <a-sky color="#111111" rotation="0 -90 0"></a-sky>
-      <a-entity light="type: ambient; intensity: 1"></a-entity>
-      <a-entity
-        light="type: directional; intensity: 2; color: #aaccee; castShadow: true"
-        position="5 10 5"
-        target="#shadow-target"
-      ></a-entity>
+      <a-entity light="type: ambient; intensity: 0.5"></a-entity>
+      <a-entity light="type: directional; intensity: 1; color: #aaccee; castShadow: true" position="5 10 5" target="#shadow-target"></a-entity>
       <a-entity id="shadow-target" position="0 0 0"></a-entity>
 
       <!-- Camera -->
@@ -48,85 +49,53 @@
         </a-camera>
       </a-entity>
 
-      <!-- World -->
+      <!-- Environment -->
       <a-entity gltf-model="#ground" position="0 0 0"></a-entity>
       <a-entity gltf-model="#palms" position="0 0 0" shadow="cast: true"></a-entity>
       <a-entity gltf-model="#cabin" position="0 0 3" shadow="cast: true; receive: true"></a-entity>
       <a-entity gltf-model="#poster" position="0 0 3"></a-entity>
 
       <!-- Phoenix -->
-      <a-entity
-        id="phoenix-container"
-        position="0 20 0"
-        animation="property: rotation; to: 0 360 0; dur: 30000; loop: true"
-      >
-        <a-box
-          id="phoenix-hitbox"
-          class="clickable"
-          visible="false"
-          depth="3"
-          height="3"
-          width="3"
-          position="10 0 0"
-          sound="src: #phoenix-audio; volume: 3"
-        ></a-box>
-        <a-entity
-          gltf-model="#phoenix"
-          position="10 0 0"
-          rotation="0 90 0"
-          scale="0.01 0.01 0.01"
-          animation-mixer
-          shadow="cast: true"
-        ></a-entity>
+      <a-entity id="phoenix-container" position="0 20 0" animation="property: rotation; to: 0 360 0; dur: 30000; loop: true">
+        <a-box id="phoenix-hitbox" class="clickable" visible="false" depth="3" height="3" width="3" position="10 0 0"
+               sound="src: #phoenix-audio; volume: 3"></a-box>
+        <a-entity gltf-model="#phoenix" position="10 0 0" rotation="0 90 0" scale="0.01 0.01 0.01" animation-mixer shadow="cast: true"></a-entity>
       </a-entity>
 
       <!-- Mushrooms -->
       <a-entity id="mushroom-container" position="0 0 2.9">
-        <a-box
-          id="mushroom-hitbox"
-          class="clickable"
-          visible="false"
-          depth="3"
-          height="2"
-          width="3"
-          position="0 1 0"
-          sound="src: #jungle-audio; volume: 1"
-        ></a-box>
+        <a-box id="mushroom-hitbox" class="clickable" visible="false" depth="3" height="2" width="3" position="0 1 0"
+               sound="src: #mushroom-audio; volume: 1.5"></a-box>
         <a-entity gltf-model="#mushrooms" position="0 0 0" scale="1 1 1" shadow="cast: true"></a-entity>
       </a-entity>
 
-      <!-- Rum Bottle with larger hitbox -->
+      <!-- Rum Bottle -->
       <a-entity id="rum-container" position="0.5 0 2.5">
-        <a-box
-          id="rum-hitbox"
-          class="clickable"
-          visible="false"
-          depth="1"
-          height="2"
-          width="1"
-          position="-1 1 -9.1"
-          sound="src: #rum-audio; volume: 1"
-        ></a-box>
-        <a-entity
-          gltf-model="#rum"
-          position="0 0 0"
-          scale="1 1 1"
-          shadow="cast: true"
-        ></a-entity>
+        <a-box id="rum-hitbox" class="clickable" visible="false" depth="1" height="2" width="1" position="-1 1 -9.1"
+               sound="src: #rum-audio; volume: 1.5"></a-box>
+        <a-entity gltf-model="#rum" position="0 0 0" scale="1 1 1" shadow="cast: true"></a-entity>
+      </a-entity>
+
+      <!-- Taino Statue -->
+      <a-entity gltf-model="#tainostatue" position="1 0 -5" scale="1 1 1" shadow="cast: true"></a-entity>
+
+      <!-- Ganesh Statue with sound toggle -->
+      <a-entity id="ganesh-container" position="-2.261 0.434 9.157">
+        <a-box id="ganesh-hitbox" class="clickable" visible="false" depth="2" height="2" width="2" position="3 1 2"
+               sound="src: #ganesh-audio; volume: 1.5"></a-box>
+        <a-entity gltf-model="#ganesh" position="0 0 0" rotation="-1 45 -2" scale="0.5 0.5 0.5" shadow="cast: true"></a-entity>
+      </a-entity>
+
+      <!-- Butterfly in tilted orbit -->
+      <a-entity id="butterfly-container" position="0 3 0" rotation="20 0 0"
+                animation="property: rotation; to: 20 360 0; dur: 25000; loop: true; easing: linear">
+        <a-entity gltf-model="#butterfly" animation-mixer position="2 0 0" scale="0.3 0.3 0.3" rotation="0 -90 0" shadow="cast: true"></a-entity>
       </a-entity>
 
       <!-- Portal -->
-      <a-entity
-        id="door-to-fatou"
-        class="clickable"
-        gltf-model="#portal"
-        position="0 0 2.8"
-        scale="1 1 1"
-        animation-mixer
-        shadow="cast: true"
-      ></a-entity>
+      <a-entity id="door-to-fatou" class="clickable" gltf-model="#portal" position="0 0 2.8" scale="1 1 1" animation-mixer shadow="cast: true"></a-entity>
 
-      <!-- Scripts -->
+      <!-- Script -->
       <script src="Alex.js/Alex.js"></script>
       <script src="shared/door.js"></script>
     </a-scene>
