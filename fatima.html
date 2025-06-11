@@ -13,20 +13,15 @@
     <!-- Camera Rig -->
 <a-entity  wasd-controls check-proximity="target: #tvScreen; distance: 2.5">
  
-  <a-entity 
-    position="0 1.6 0"
-    rotation="0 180 0">
-  </a-entity>
+  <a-entity position="0 1.6 0" rotation="0 180 0"> </a-entity>
   <a-camera wasd-controls-enabled="true" look-controls-enabled="true">
-          <a-cursor fuse="false" raycaster="objects: .clickable"></a-cursor>
-        </a-camera>
+  <a-cursor fuse="false" raycaster="objects: .clickable"></a-cursor>
+  </a-camera>
 </a-entity>
 
      
     <!-- Floor -->
-<a-assets>
-  <img id="wood-floor" src="/Fatima.assets/floor.jpeg">
-</a-assets>
+<a-assets> <img id="wood-floor" src="/Fatima.assets/floor.jpeg"></a-assets>
 
 <!-- Floor with wood texture applied -->
 <a-plane 
@@ -47,11 +42,7 @@
 
        <a-assets>
         <a-asset-item id="windowModel" src="/Fatima.assets/window_and_door.glb"></a-asset-item>
-         <a-asset-item
-          id="shared-door"
-          src="/shared/shared_door.glb"
-        ></a-asset-item>
-      </a-assets>
+         <a-asset-item  id="shared-door" src="/shared/shared_door.glb"></a-asset-item>
         <a-asset-item id="diningSetModel" src="/Fatima.assets/simple_dining_table.glb"></a-asset-item> 
         <a-asset-item id="clockModel" src="/Fatima.assets/wall_clock.glb"></a-asset-item>
          <a-asset-item id="fridgeModel" src="/Fatima.assets/fridge_freezer.glb"></a-asset-item>
@@ -92,29 +83,33 @@
 
 
       <!-- Right-hand wall -->
-       <a-assets>
-      <img id="wallTexture" src="/Fatima.assets/wall1.jpg">
-       <a-asset-item id="doorModel" src="/Fatima.assets/door.glb"></a-asset-item>
-        
-    </a-assets>
+       <a-assets><img id="wallTexture" src="/Fatima.assets/wall1.jpg">
+        <img id="poster" src="/Fatima.assets/poster1.webp">
+      </a-assets>
 
       <a-plane position="4 1.5 -4" rotation="0 -90 0" width="8" height="3"  src="#wallTexture"  material="side: double"></a-plane>
       
+      <!-- poster -->
      
- <!-- Door Model on Right Wall -->
-<!-- <a-entity 
-id="fatouDoor"
-  gltf-model="#doorModel" 
-  position="4 0 -4" 
+      <a-plane 
+  position="3.9 1.9 -5.5" 
   rotation="0 -90 0" 
-  scale="0.6 0.8 0.6"
-  class="clickable"
-  >
-</a-entity> -->
+  width="0.6" 
+  height="0.5" 
+  material="src: #poster; side: double">
+</a-plane>
+<a-text 
+  value="in 2025" 
+  position="3.9 1.7 -5.5" 
+  rotation="0 -90 0" 
+  align="center" 
+  color="#000000" 
+  width="2">
+</a-text> 
 
  <!--Shared door-->
       <a-gltf-model
-        id="door-to-alex"
+        id="door-to-fatou"
         class="clickable"
         src="#shared-door"
          position="4 0 -4" 
@@ -187,11 +182,11 @@ id="fatouDoor"
 
       <!-- Stove on Countertop -->
       <a-entity 
-  gltf-model="#gasStoveModel" 
-  position="-0.5 1.11 -2.3" 
-  scale="0.5 0.5 0.5"
-  rotation="0 180 0">
-</a-entity>
+      gltf-model="#gasStoveModel" 
+      position="-0.5 1.11 -2.3" 
+      scale="0.5 0.5 0.5"
+      rotation="0 180 0">
+    </a-entity>
 
       
 
@@ -218,8 +213,13 @@ id="fatouDoor"
         <a-assets>
       <img id="wallTexture" src="/Fatima.assets/wall1.jpg">
       <a-asset-item id="tvModel" src="/Fatima.assets/tv.glb"></a-asset-item>
+      <a-asset-item id="pineappleModel" src="/Fatima.assets/pineapple.glb"></a-asset-item>
+        <a-asset-item id="fruitBowlModel" src="/Fatima.assets/fruit_bowl.glb"></a-asset-item>
+         <a-asset-item id="sinkModel" src="/Fatima.assets/kitchen_sink.glb"></a-asset-item>
+         <a-asset-item id="riceModel" src="/Fatima.assets/rice.glb"></a-asset-item>
 
       </a-assets>
+
       <a-plane position="-4 1.5 -4" rotation="0 90 0" width="8" height="3" src="#wallTexture"  material="side: double"></a-plane>
 
       <a-entity 
@@ -235,6 +235,10 @@ id="fatouDoor"
       <a-box position="-3.1 1.0 -3" width="1.7" height="0.1" depth="4" color="#cccccc"></a-box> <!-- counter -->
 
       
+      <a-entity gltf-model="#riceModel" 
+          position="-1.1 1.2 -5.1" 
+          scale="0.5 0.5 0.5">
+      </a-entity>
 
 <!-- Oven  -->
 <a-box position="-2.2 0.5 -3" width="0.05" height="0.8" depth="0.5" color="#333333"></a-box>
@@ -262,14 +266,6 @@ id="fatouDoor"
 <a-box position="-2.2 0.2 -1.4" width="0.04" height="0.25" depth="0.8" color="#e0e0e0"></a-box>
 <a-box position="-2.12 0.2 -1.4" width="0.02" height="0.05" depth="0.2" color="#000000"></a-box>
 
-
-
-
-        <a-assets>
-        <a-asset-item id="pineappleModel" src="/Fatima.assets/pineapple.glb"></a-asset-item>
-        <a-asset-item id="fruitBowlModel" src="/Fatima.assets/fruit_bowl.glb"></a-asset-item>
-         <a-asset-item id="sinkModel" src="/Fatima.assets/kitchen_sink.glb"></a-asset-item>
-        </a-assets>
 
       <!-- Sink on left side of the counter -->
 
