@@ -1,0 +1,324 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+ <a-entity id="tvAudio"
+  position="-3.95 2.1 -6.2"
+  sound="src: url(/Fatima.assets/background_musik.mp3); autoplay: true; loop: true; positional: true; distanceModel: linear; maxDistance: 4">
+</a-entity>
+
+     
+    <!-- Camera Rig -->
+<a-entity  wasd-controls check-proximity="target: #tvScreen; distance: 2.5">
+ 
+  <a-entity 
+    camera 
+    look-controls 
+    position="0 1.6 0"
+    rotation="0 180 0">
+  </a-entity>
+</a-entity>
+
+     
+    <!-- Floor -->
+<a-assets>
+  <img id="wood-floor" src="/Fatima.assets/floor.jpeg">
+</a-assets>
+
+<!-- Floor with wood texture applied -->
+<a-plane 
+  position="0 0 -4" 
+  rotation="-90 0 0" 
+  width="8" 
+  height="8" 
+  src="#wood-floor"
+  repeat="4 4" 
+  material="side: double">
+</a-plane>
+
+
+
+      <!-- Front wall with window -->
+      <a-plane position="0 1.5 -8" rotation="0 0 0" width="8" height="3" color="#D3D3D3"></a-plane>
+     
+
+       <a-assets>
+        <a-asset-item id="windowModel" src="/Fatima.assets/window_and_door.glb"></a-asset-item>
+        <a-asset-item id="diningSetModel" src="/Fatima.assets/simple_dining_table.glb"></a-asset-item> 
+        <a-asset-item id="clockModel" src="/Fatima.assets/wall_clock.glb"></a-asset-item>
+         <a-asset-item id="fridgeModel" src="/Fatima.assets/fridge_freezer.glb"></a-asset-item>
+      </a-assets>
+
+      <!-- Fridge-Freezer -->
+       <a-entity 
+        gltf-model="#fridgeModel" 
+        position="2.8 1.4 -7.9" 
+        scale="1.81 1.5 1" 
+        rotation="0 0 0">
+      </a-entity>
+
+
+      <!-- Wall Clock -->
+    <a-entity 
+  id="wallClock"
+  gltf-model="#clockModel" 
+  position="-3 2.5 -7.9" 
+  rotation="0 0 0"
+  scale="0.3 0.3 0.3">
+</a-entity>
+
+        <a-entity 
+     gltf-model="#windowModel" 
+  position="0 1.1 -7.95" 
+  scale="0.02 0.01 0.02" 
+  rotation="0 0 0">
+    </a-entity>
+
+      <!-- Dining Set in Front of Window -->   
+<a-entity  id="diningSet"
+  gltf-model="#diningSetModel" 
+  position="-1.2 -0.1 -6.2" 
+  scale="0.0017 0.0017 0.0017" 
+  rotation="0 100 0">
+</a-entity>
+
+
+      <!-- Right-hand wall -->
+       <a-assets>
+      <img id="wallTexture" src="/Fatima.assets/wall1.jpg">
+       <a-asset-item id="doorModel" src="/Fatima.assets/door.glb"></a-asset-item>
+        
+    </a-assets>
+
+      <a-plane position="4 1.5 -4" rotation="0 -90 0" width="8" height="3"  src="#wallTexture"  material="side: double"></a-plane>
+      
+     
+ <!-- Door Model on Right Wall -->
+<a-entity 
+id="fatouDoor"
+  gltf-model="#doorModel" 
+  position="4 0 -4" 
+  rotation="0 -90 0" 
+  scale="0.6 0.8 0.6"
+  class="clickable"
+  >
+</a-entity>
+
+
+     
+
+          <!-- Roof -->
+    <a-plane 
+      position="0 3 -4" 
+      rotation="90 0 0" 
+      width="8" 
+      height="8" 
+      color="#f0f0f0" 
+      material="side: double">
+    </a-plane>
+
+    <!-- Ambient Light -->
+ <a-entity light="type: ambient; intensity: 1.2; color: #ffffff">
+
+  <!-- Brighter Ceiling Lights -->
+<a-sphere position="-2 2.9 -2" radius="0.1" color="#ffffff"
+          light="type: point; intensity: 3; distance: 6; color: #ffffff"></a-sphere>
+<a-sphere position="2 2.9 -2" radius="0.1" color="#ffffff"
+          light="type: point; intensity: 3; distance: 6; color: #ffffff"></a-sphere>
+<a-sphere position="-2 2.9 -6" radius="0.1" color="#ffffff"
+          light="type: point; intensity: 3; distance: 6; color: #ffffff"></a-sphere>
+<a-sphere position="2 2.9 -6" radius="0.1" color="#ffffff"
+          light="type: point; intensity: 3; distance: 6; color: #ffffff"></a-sphere>
+
+</a-entity>
+
+    
+
+      <!-- Kitchen island -->
+      <a-box position="0 0.5 -2.5" width="2.5" height="0.9" depth="1" color="#FFFAFA"></a-box>
+      <!-- Countertop -->
+      <a-box position="0 1.01 -2.5" width="2.6" height="0.1" depth="1.1" color="#cccccc"></a-box>
+<a-assets>
+  <a-asset-item id="flowerVaseModel" src="/Fatima.assets/flowers_vase.glb"></a-asset-item>
+  <a-asset-item id="gasStoveModel" src="/Fatima.assets/gas_stove.glb"></a-asset-item>
+</a-assets>
+      <a-entity 
+  gltf-model="#flowerVaseModel" 
+  position="1 1.1 -2.5"  
+  scale="0.8 0.8 0.8" 
+  rotation="0 180 0">
+</a-entity>
+
+
+     
+
+
+      <!-- Left Door -->
+    <a-box position="-0.625 0.5 -2.0" width="1.2" height="0.8" depth="0.05" color="#e0e0e0"></a-box>
+
+    <!-- Right Door -->
+    <a-box position="0.625 0.5 -2.0" width="1.2" height="0.8" depth="0.05" color="#e0e0e0"></a-box>
+
+    <!-- Left Handle -->
+    <a-box position="-0.2 0.5 -1.97" width="0.05" height="0.15" depth="0.02" color="#000000"></a-box>
+
+    <!-- Right Handle -->
+    <a-box position="0.2 0.5 -1.97" width="0.05" height="0.15" depth="0.02" color="#000000"></a-box>
+
+      
+
+      <!-- Stove on Countertop -->
+      <a-entity 
+  gltf-model="#gasStoveModel" 
+  position="-0.5 1.11 -2.3" 
+  scale="0.5 0.5 0.5"
+  rotation="0 180 0">
+</a-entity>
+
+      
+
+      <!-- Ring-Style Hanging Lamp -->
+      <a-entity position="0 2.8 -2.5">
+  <!-- Hanging rod -->
+  <a-cylinder position="0 -0.3 0" radius="0.02" height="0.6" color="#444"></a-cylinder>
+
+  <!-- Ring lamp base -->
+  <a-torus position="0 -0.7 0" radius="0.5" radius-tubular="0.03" color="#999"></a-torus>
+
+  <!-- Small lights around ring -->
+  <a-sphere position="0.5 -0.7 0" radius="0.03" color="#ffffe0"
+            light="type: point; intensity: 1; distance: 2; color: #fff"></a-sphere>
+  <a-sphere position="-0.5 -0.7 0" radius="0.03" color="#ffffe0"
+            light="type: point; intensity: 1; distance: 2; color: #fff"></a-sphere>
+  <a-sphere position="0 -0.7 0.5" radius="0.03" color="#ffffe0"
+            light="type: point; intensity: 1; distance: 2; color: #fff"></a-sphere>
+  <a-sphere position="0 -0.7 -0.5" radius="0.03" color="#ffffe0"
+            light="type: point; intensity: 1; distance: 2; color: #fff"></a-sphere>
+</a-entity>
+
+       <!--  Left-hand wall -->
+        <a-assets>
+      <img id="wallTexture" src="/Fatima.assets/wall1.jpg">
+      <a-asset-item id="tvModel" src="/Fatima.assets/tv.glb"></a-asset-item>
+
+      </a-assets>
+      <a-plane position="-4 1.5 -4" rotation="0 90 0" width="8" height="3" src="#wallTexture"  material="side: double"></a-plane>
+
+      <a-entity 
+        gltf-model="#tvModel" 
+        position="-3.95 2.1 -6.2" 
+        rotation="0 150 0" 
+        scale="1 1 1">
+      </a-entity>
+      
+
+      <!-- Sink Cabinet Unit (Left Wall) -->
+      <a-box position="-3.1 0.5 -3" width="1.7" height="0.9" depth="4" color="#FFFAFA"></a-box> <!-- cabinet -->
+      <a-box position="-3.1 1.0 -3" width="1.7" height="0.1" depth="4" color="#cccccc"></a-box> <!-- counter -->
+
+      
+
+<!-- Oven  -->
+<a-box position="-2.2 0.5 -3" width="0.05" height="0.8" depth="0.5" color="#333333"></a-box>
+<!-- Oven handle -->
+<a-box position="-2.11 0.8 -3" width="0.05" height="0.05" depth="0.2" color="#ffffff"></a-box>
+
+<!-- Left-side door -->
+<a-box position="-2.2 0.5 -3.8" width="0.05" height="0.9" depth="0.6" color="#e0e0e0"></a-box>
+<a-box position="-2.12 0.8 -1.9" width="0.02" height="0.15" depth="0.05" color="#000000"></a-box>
+
+<!-- Right-side door -->
+<a-box position="-2.2 0.5 -2.2" width="0.05" height="0.9" depth="0.6" color="#e0e0e0"></a-box>
+<a-box position="-2.12 0.8 -1.9" width="0.02" height="0.15" depth="0.05" color="#000000"></a-box>
+
+
+<!-- Drawer 1 (Top) -->
+<a-box position="-2.2 0.8 -1.4" width="0.04" height="0.25" depth="0.8" color="#e0e0e0"></a-box>
+<a-box position="-2.12 0.8 -1.4" width="0.02" height="0.05" depth="0.2" color="#000000"></a-box>
+
+<!-- Drawer 2 (Middle) -->
+<a-box position="-2.2 0.5 -1.4" width="0.04" height="0.25" depth="0.8" color="#e0e0e0"></a-box>
+<a-box position="-2.12 0.5 -1.4" width="0.02" height="0.05" depth="0.2" color="#000000"></a-box>
+
+<!-- Drawer 3 (Bottom) -->
+<a-box position="-2.2 0.2 -1.4" width="0.04" height="0.25" depth="0.8" color="#e0e0e0"></a-box>
+<a-box position="-2.12 0.2 -1.4" width="0.02" height="0.05" depth="0.2" color="#000000"></a-box>
+
+
+
+
+        <a-assets>
+        <a-asset-item id="pineappleModel" src="/Fatima.assets/pineapple.glb"></a-asset-item>
+        <a-asset-item id="fruitBowlModel" src="/Fatima.assets/fruit_bowl.glb"></a-asset-item>
+         <a-asset-item id="sinkModel" src="/Fatima.assets/kitchen_sink.glb"></a-asset-item>
+        </a-assets>
+
+      <!-- Sink on left side of the counter -->
+
+      <a-entity 
+      id="sink"
+        gltf-model="#sinkModel" 
+        position="-3.8 1 -3.1" 
+        scale="1 1 1.9" 
+        rotation="0 90 0">
+      </a-entity>
+      <a-cylinder 
+          id="waterFlow"
+          position="-3.8 1.05 -3.1"
+          radius="0.02" 
+          height="0.4" 
+          color="blue" 
+          visible="false">
+        </a-cylinder>
+
+
+        <!-- Pineapple on left side of the counter -->
+        <a-entity 
+        gltf-model="#pineappleModel" 
+        position="-3.6 1.1 -4.3" 
+        scale="0.1 0.1 0.1" 
+        rotation="0 45 0">
+        </a-entity>
+
+        <!-- Fruit bowl on right side of the counter -->
+        <a-entity 
+        gltf-model="#fruitBowlModel" 
+        position="-3.5 1.1 -2.1"
+        scale="0.05 0.05 0.05"
+        rotation="0 -30 0">
+        </a-entity>
+      
+      <!-- Sky background -->
+      <a-assets>
+        <img id="day-sky" src="/Fatima.assets/">
+      </a-assets>
+      <a-sky src="#day-sky"></a-sky>
+    </a-scene>
+   
+    <script>
+  AFRAME.registerComponent('tv-audio-trigger', {
+    tick: function () {
+      const camera = document.querySelector('[camera]').object3D;
+      const tvAudio = document.querySelector('#tvAudio');
+      const tvPos = tvAudio.object3D.position;
+      const camPos = camera.position;
+      const distance = camPos.distanceTo(tvPos);
+
+      if (distance < 2.5 && !this.played) {
+        tvAudio.components.sound.playSound();
+        this.played = true;
+      } else if (distance >= 2.5 && this.played) {
+        tvAudio.components.sound.stopSound();
+        this.played = false;
+      }
+    }
+  });
+</script>
+
+
+
+    
+  </body>
+</html>
