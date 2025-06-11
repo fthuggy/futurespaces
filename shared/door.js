@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (doorToAlex) {
     doorToAlex.addEventListener("click", () => {
-      window.location.href = "alex.html";
+      window.location.href = "Alex.html";
     });
   }
 
